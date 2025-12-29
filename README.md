@@ -69,7 +69,7 @@ npm run preview
 ### Vercel (Recommended)
 
 1. **Connect Repository**: Import your GitHub repository to Vercel
-2. **Configure Build Settings**:
+2. **Configure Build Settings** (Vercel Dashboard > Settings > General):
    - **Framework Preset**: `Other`
    - **Build Command**: `npx tailwindcss -i ./input.css -o ./style.css --minify`
    - **Output Directory**: `.` (leave empty)
@@ -88,13 +88,14 @@ npm run build
 
 ### Troubleshooting Vercel Deployment
 
-If you encounter `DEPLOYMENT_NOT_FOUND` error:
+If you encounter deployment errors:
 
-1. **Check File Structure**: Ensure all files are in the root directory
-2. **Verify Vercel Settings**: Make sure "Framework Preset" is set to "Other"
-3. **Build Command**: Use `npx tailwindcss -i ./input.css -o ./style.css --minify`
-4. **Output Directory**: Leave as `.` (current directory)
-5. **Redeploy**: Force a new deployment after changing settings
+1. **404/DEPLOYMENT_NOT_FOUND**: Ensure "Framework Preset" is set to "Other" (not auto-detected)
+2. **Build Failures**: Check that all files are in the repository root
+3. **CSS Not Loading**: Verify the build command generates `style.css`
+4. **Schema Validation**: If you get vercel.json errors, the simple config should resolve it
+
+**Note**: The `vercel.json` is minimal to avoid triggering serverless function detection.
 
 ## 📈 Performance Metrics
 
