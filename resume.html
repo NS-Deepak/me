@@ -8,32 +8,7 @@
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#3780f6",
-                        "zinc-950": "#09090b",
-                        "zinc-900": "#18181b",
-                        "zinc-800": "#27272a",
-                    },
-                    fontFamily: {
-                        "display": ["Space Grotesk", "sans-serif"],
-                        "mono": ["Space Mono", "monospace"],
-                    },
-                },
-            },
-        }
-    </script>
-    <style>
-        @media print { .no-print { display: none; } }
-        ::-webkit-scrollbar { width: 8px; background: #09090b; }
-        ::-webkit-scrollbar-thumb { background: #27272a; }
-        ::-webkit-scrollbar-thumb:hover { background: #3780f6; }
-    </style>
+    <link href="style.css" rel="stylesheet">
 </head>
 <body class="bg-zinc-950 text-zinc-50 antialiased font-display selection:bg-primary/30">
 

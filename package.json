@@ -1,0 +1,22 @@
+{
+  "name": "deepak-portfolio",
+  "version": "1.0.0",
+  "description": "Deepak G - Developer Portfolio",
+  "scripts": {
+    "build": "npm run clean && npm run build-css && npm run minify-css",
+    "build-css": "postcss style.css -o dist/style.css",
+    "minify-css": "postcss dist/style.css -o dist/style.min.css --use cssnano --no-map",
+    "watch-css": "postcss style.css -o dist/style.css --watch",
+    "dev": "npm run watch-css",
+    "clean": "if exist dist rmdir /s /q dist && echo Clean complete || echo No dist directory to clean",
+    "preview": "npx serve . -p 3000"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0-alpha.35",
+    "cssnano": "^7.1.2",
+    "postcss": "^8.4.47",
+    "postcss-cli": "^11.0.1",
+    "serve": "^14.2.4",
+    "tailwindcss": "^4.0.0-alpha.35"
+  }
+}
