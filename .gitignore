@@ -12,6 +12,7 @@ build/
 .next/
 .nuxt/
 .vite/
+style.css
 
 # Runtime data
 pids

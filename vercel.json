@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run build && cp dist/style.min.css ./style.css",
+  "buildCommand": "npm run build",
   "outputDirectory": ".",
   "framework": null,
   "installCommand": "npm install",
