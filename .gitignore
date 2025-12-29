@@ -134,6 +134,9 @@ public
 *.swo
 *~
 
+# CSS custom data (development only)
+.css-custom-data.json
+
 # OS generated files
 .DS_Store
 .DS_Store?
