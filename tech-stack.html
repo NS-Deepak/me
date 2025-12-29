@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Deepak G. - Tech Stack</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3780f6",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#09090b", // zinc-950
+                        "card-dark": "rgba(24, 24, 27, 0.5)", // zinc-900/50
+                        "zinc-800": "#27272a",
+                        "zinc-50": "#fafafa",
+                        "zinc-400": "#a1a1aa",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .grid-bg {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, #27272a 1px, transparent 1px),
+            linear-gradient(to bottom, #27272a 1px, transparent 1px);
+            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-zinc-50 antialiased overflow-x-hidden">
+<div class="relative min-h-screen w-full flex flex-col">
+<!-- Top Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-zinc-800 bg-background-dark/80 backdrop-blur-md px-6 lg:px-10 py-4 sticky top-0 z-50">
+<div class="flex items-center gap-4 text-white">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] font-mono">DEEPAK G.<span class="animate-pulse text-primary">_</span></h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8">
+<nav class="flex items-center gap-9">
+<a class="text-zinc-400 hover:text-white transition-colors text-sm font-medium leading-normal" href="projects.html">WORK</a>
+<a class="text-white text-sm font-medium leading-normal" href="tech-stack.html">STACK</a>
+<a class="text-zinc-400 hover:text-white transition-colors text-sm font-medium leading-normal" href="#">ABOUT</a>
+<a class="text-zinc-400 hover:text-white transition-colors text-sm font-medium leading-normal" href="#">CONTACT</a>
+</nav>
+<button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary hover:bg-primary/90 transition-colors text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate font-mono">RESUME.pdf</span>
+</button>
+</div>
+<div class="md:hidden text-white">
+<span class="material-symbols-outlined">menu</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow flex flex-col items-center relative">
+<!-- Background Grid Pattern -->
+<div class="absolute inset-0 grid-bg opacity-20 pointer-events-none z-0"></div>
+<div class="layout-content-container flex flex-col max-w-[1200px] w-full flex-1 px-6 lg:px-12 py-12 z-10">
+<!-- Page Heading -->
+<div class="flex flex-col gap-6 mb-16 border-l-2 border-primary pl-6">
+<div class="flex flex-col gap-2">
+<p class="text-primary text-sm font-mono tracking-widest uppercase">// CAPABILITIES_MATRIX</p>
+<h1 class="text-zinc-50 text-5xl md:text-6xl font-black leading-tight tracking-[-0.033em] font-mono">
+                        TECH_STACK
+                    </h1>
+</div>
+<p class="text-zinc-400 text-lg font-normal leading-relaxed max-w-2xl font-mono">
+                    &gt; A comprehensive overview of my technical toolkit. Current focus: Scalable distributed systems and performant frontend architectures.
+                </p>
+</div>
+<!-- Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 01: Frontend -->
+<div class="group border border-zinc-800 bg-card-dark hover:border-primary/50 hover:bg-zinc-900/80 transition-all duration-300 p-6 rounded-lg flex flex-col gap-6 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-zinc-600 group-hover:text-primary">terminal</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-xs font-mono text-zinc-500">[01] CLIENT_SIDE</span>
+<h3 class="text-zinc-50 text-2xl font-bold font-mono tracking-tight group-hover:text-primary transition-colors">FRONTEND_ENG</h3>
+</div>
+<div class="h-px w-full bg-zinc-800 group-hover:bg-primary/30 transition-colors"></div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">React</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">Next.js 14</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">TypeScript</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">Tailwind CSS</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">Framer Motion</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">Redux Toolkit</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">Three.js</span>
+</div>
+</div>
+<!-- Card 02: Backend -->
+<div class="group border border-zinc-800 bg-card-dark hover:border-primary/50 hover:bg-zinc-900/80 transition-all duration-300 p-6 rounded-lg flex flex-col gap-6 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-zinc-600 group-hover:text-primary">dns</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-xs font-mono text-zinc-500">[02] SERVER_SIDE</span>
+<h3 class="text-zinc-50 text-2xl font-bold font-mono tracking-tight group-hover:text-primary transition-colors">BACKEND_SYS</h3>
+</div>
+<div class="h-px w-full bg-zinc-800 group-hover:bg-primary/30 transition-colors"></div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">Node.js</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">Python</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">Go</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">PostgreSQL</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">GraphQL</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">Redis</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">MongoDB</span>
+</div>
+</div>
+<!-- Card 03: DevOps -->
+<div class="group border border-zinc-800 bg-card-dark hover:border-primary/50 hover:bg-zinc-900/80 transition-all duration-300 p-6 rounded-lg flex flex-col gap-6 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-zinc-600 group-hover:text-primary">cloud</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-xs font-mono text-zinc-500">[03] OPERATIONS</span>
+<h3 class="text-zinc-50 text-2xl font-bold font-mono tracking-tight group-hover:text-primary transition-colors">DEVOPS_INFRA</h3>
+</div>
+<div class="h-px w-full bg-zinc-800 group-hover:bg-primary/30 transition-colors"></div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">Docker</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">AWS</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">Kubernetes</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">GitHub Actions</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">Terraform</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">Nginx</span>
+</div>
+</div>
+<!-- Card 04: Tools & Workflow -->
+<div class="group border border-zinc-800 bg-card-dark hover:border-primary/50 hover:bg-zinc-900/80 transition-all duration-300 p-6 rounded-lg flex flex-col gap-6 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-zinc-600 group-hover:text-primary">construction</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-xs font-mono text-zinc-500">[04] TOOLING</span>
+<h3 class="text-zinc-50 text-2xl font-bold font-mono tracking-tight group-hover:text-primary transition-colors">WORKFLOW</h3>
+</div>
+<div class="h-px w-full bg-zinc-800 group-hover:bg-primary/30 transition-colors"></div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">Git</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">VS Code</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">Figma</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">Postman</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">Linux (Arch)</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">Vim</span>
+</div>
+</div>
+<!-- Card 05: Mobile -->
+<div class="group border border-zinc-800 bg-card-dark hover:border-primary/50 hover:bg-zinc-900/80 transition-all duration-300 p-6 rounded-lg flex flex-col gap-6 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-zinc-600 group-hover:text-primary">smartphone</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-xs font-mono text-zinc-500">[05] NATIVE</span>
+<h3 class="text-zinc-50 text-2xl font-bold font-mono tracking-tight group-hover:text-primary transition-colors">MOBILE_DEV</h3>
+</div>
+<div class="h-px w-full bg-zinc-800 group-hover:bg-primary/30 transition-colors"></div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">React Native</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">Expo</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">SwiftUI</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">Flutter</span>
+</div>
+</div>
+<!-- Card 06: Data -->
+<div class="group border border-zinc-800 bg-card-dark hover:border-primary/50 hover:bg-zinc-900/80 transition-all duration-300 p-6 rounded-lg flex flex-col gap-6 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-zinc-600 group-hover:text-primary">bar_chart</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-xs font-mono text-zinc-500">[06] ANALYTICS</span>
+<h3 class="text-zinc-50 text-2xl font-bold font-mono tracking-tight group-hover:text-primary transition-colors">DATA_ENG</h3>
+</div>
+<div class="h-px w-full bg-zinc-800 group-hover:bg-primary/30 transition-colors"></div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">Pandas</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">NumPy</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">Apache Airflow</span>
+<span class="bg-zinc-900 border border-zinc-700 text-zinc-300 px-3 py-1 rounded text-sm font-mono hover:border-primary hover:text-white cursor-default transition-colors">SQL</span>
+</div>
+</div>
+</div>
+<!-- Bottom Stats / Footerish element -->
+<div class="mt-16 w-full border-t border-zinc-800 pt-8 flex flex-col md:flex-row justify-between items-center text-zinc-500 text-sm font-mono">
+<div>
+                   SYSTEM_STATUS: <span class="text-green-500">ONLINE</span>
+</div>
+<div class="mt-4 md:mt-0 flex gap-6">
+<span>UPTIME: 99.9%</span>
+<span>LAST_UPDATED: 2023-10-24</span>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Deepak G - Resume</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3780f6",
+                        "zinc-950": "#09090b",
+                        "zinc-900": "#18181b",
+                        "zinc-800": "#27272a",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "mono": ["Space Mono", "monospace"],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        @media print { .no-print { display: none; } }
+        ::-webkit-scrollbar { width: 8px; background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; }
+        ::-webkit-scrollbar-thumb:hover { background: #3780f6; }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-50 antialiased font-display selection:bg-primary/30">
+
+    <header class="sticky top-0 z-50 w-full border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md no-print">
+        <div class="flex h-16 items-center justify-between px-6 lg:px-12">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">terminal</span>
+                <span class="font-mono text-lg font-bold tracking-tight">DG_RESUME.v1</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto p-6 md:p-12 lg:p-20">
+
+        <section class="mb-16 border-l-4 border-primary pl-8 py-2">
+            <h1 class="text-6xl md:text-8xl font-black font-mono tracking-tighter mb-4 uppercase">
+                DEEPAK <span class="text-zinc-800">G.</span>
+            </h1>
+            <div class="flex flex-wrap gap-6 text-sm font-mono text-zinc-400">
+                <span class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">location_on</span> Bangalore, India</span>
+                <a href="https://github.com/NS-Deepak" class="flex items-center gap-2 hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined text-primary text-sm">code</span> github.com/NS-Deepak
+                </a>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="font-mono text-primary text-xs tracking-[0.3em] uppercase mb-6 flex items-center gap-4">
+                01. summary <span class="h-px grow bg-zinc-800"></span>
+            </h2>
+            <p class="text-xl md:text-2xl font-mono text-zinc-300 leading-relaxed italic">
+                &gt; Early-career software engineer focused on backend systems, security, and architectural integrity.
+                Systems-level thinker with failure-mode awareness building high-integrity production software.
+            </p>
+        </section>
+
+        <section class="mb-16 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <h2 class="font-mono text-primary text-xs tracking-[0.3em] uppercase mb-6 flex items-center gap-4">
+                    02. stack <span class="h-px grow bg-zinc-800"></span>
+                </h2>
+                <div class="space-y-4">
+                    <div class="group border border-zinc-800 bg-zinc-900/50 p-4 rounded hover:border-primary/50 transition-colors">
+                        <p class="text-xs font-mono text-zinc-500 mb-1">LANGUAGES_CORE</p>
+                        <p class="text-zinc-200 font-mono">C, JavaScript, TypeScript</p>
+                    </div>
+                    <div class="group border border-zinc-800 bg-zinc-900/50 p-4 rounded hover:border-primary/50 transition-colors">
+                        <p class="text-xs font-mono text-zinc-500 mb-1">BACKEND_INFRA</p>
+                        <p class="text-zinc-200 font-mono">Node.js, Express, PostgreSQL, RBAC</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h2 class="font-mono text-primary text-xs tracking-[0.3em] uppercase mb-6 flex items-center gap-4">
+                    03. tooling <span class="h-px grow bg-zinc-800"></span>
+                </h2>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-zinc-900 border border-zinc-700 font-mono text-xs">Git/GitHub</span>
+                    <span class="px-3 py-1 bg-zinc-900 border border-zinc-700 font-mono text-xs">Linux</span>
+                    <span class="px-3 py-1 bg-zinc-900 border border-zinc-700 font-mono text-xs">CI/CD</span>
+                    <span class="px-3 py-1 bg-zinc-900 border border-zinc-700 font-mono text-xs">Cursor/Claude</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="font-mono text-primary text-xs tracking-[0.3em] uppercase mb-8 flex items-center gap-4">
+                04. architecture_work <span class="h-px grow bg-zinc-800"></span>
+            </h2>
+            <div class="space-y-8">
+                <article class="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-px before:bg-zinc-800 group hover:before:bg-primary transition-all">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-2xl font-bold font-mono group-hover:text-primary transition-colors">Single-brain: Security Audit Agent</h3>
+                        <span class="text-xs font-mono text-zinc-600">STATE: DEPLOYED</span>
+                    </div>
+                    <ul class="text-zinc-400 font-mono text-sm space-y-2 leading-relaxed">
+                        <li>- Built local-first, stateless agent for PR security evaluation.</li>
+                        <li>- Analyzed architectural drift across multi-commit changes.</li>
+                        <li>- Enforced JSON-only output for deterministic CI integration.</li>
+                    </ul>
+                </article>
+
+                <article class="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-px before:bg-zinc-800 group hover:before:bg-primary transition-all">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-2xl font-bold font-mono group-hover:text-primary transition-colors">Influencer-Brand CRM</h3>
+                        <span class="text-xs font-mono text-zinc-600">STATE: STABLE</span>
+                    </div>
+                    <ul class="text-zinc-400 font-mono text-sm space-y-2 leading-relaxed">
+                        <li>- Schema-first backend with strict authorization boundaries.</li>
+                        <li>- Implemented RBAC separating brand and influencer concerns.</li>
+                        <li>- Modeled onboarding as an explicit system state.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="font-mono text-primary text-xs tracking-[0.3em] uppercase mb-6 flex items-center gap-4">
+                05. education <span class="h-px grow bg-zinc-800"></span>
+            </h2>
+            <div class="font-mono">
+                <p class="text-zinc-200">B.E. Mechanical Engineering</p>
+                <p class="text-zinc-500 text-sm">Kongu Engineering College | 2023 </p>
+            </div>
+        </section>
+
+        <footer class="mt-20 pt-12 border-t border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+            <div class="flex items-center gap-2 text-xs font-mono">
+                <span class="animate-pulse h-2 w-2 rounded-full bg-green-500"></span>
+                SYSTEM_STABLE // 2025
+            </div>
+            <div class="text-[10px] font-mono tracking-widest uppercase">
+                &copy; Deepak G. &bull; Engineered for correctness
+            </div>
+        </footer>
+
+    </main>
+</body>
+</html>
