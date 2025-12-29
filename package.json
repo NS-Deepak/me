@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Deepak G - Developer Portfolio",
   "scripts": {
-    "build": "npm run clean && npx tailwindcss -i ./input.css -o ./temp.css --minify && type temp.css custom.css > style.css && del temp.css",
+    "build": "npm run clean && npx tailwindcss -i ./input.css -o ./style.css --minify",
     "watch-css": "npx tailwindcss -i ./input.css -o ./style.css --watch",
     "dev": "npm run watch-css",
     "clean": "if exist dist rmdir /s /q dist && echo Clean complete || echo No dist directory to clean",
