@@ -6,7 +6,7 @@
     "build": "npm run clean && npx tailwindcss -i ./input.css -o ./style.css --minify",
     "watch-css": "npx tailwindcss -i ./input.css -o ./style.css --watch",
     "dev": "npm run watch-css",
-    "clean": "if exist dist rmdir /s /q dist && echo Clean complete || echo No dist directory to clean",
+    "clean": "rm -rf dist",
     "preview": "npx serve . -p 3000"
   },
   "devDependencies": {
