@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./*.html"], // Scans your index.html, projects.html, etc.
-  safelist: ['cursor-blink', 'animate-ping'],
   darkMode: "class",
   theme: {
     extend: {
