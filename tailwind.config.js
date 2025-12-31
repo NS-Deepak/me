@@ -25,6 +25,19 @@ module.exports = {
         "xl": "0.75rem",
         "full": "9999px"
       },
+      keyframes: {
+        shimmer: {
+          '100%': { transform: 'translateX(100%)' },
+        },
+        blink: {
+          '0%, 50%': { opacity: '1' },
+          '51%, 100%': { opacity: '0' },
+        }
+      },
+      animation: {
+        shimmer: 'shimmer 1.5s infinite',
+        blink: 'blink 1s infinite',
+      },
     },
   },
   plugins: [
