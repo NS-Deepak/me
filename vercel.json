@@ -6,7 +6,7 @@
   "devCommand": "npm run dev",
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/*",
       "headers": [
         {
           "key": "X-Content-Type-Options",
@@ -28,7 +28,7 @@
       ]
     },
     {
-      "source": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico))$",
+      "source": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico))",
       "headers": [
         {
           "key": "Cache-Control",
