@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Deepak G - Developer Portfolio",
   "scripts": {
-    "build": "npm run build:css && npm run build:js",
+    "build": "npm run build:css && vite build",
     "build:css": "npx tailwindcss -i ./input.css -o ./style.css --minify",
     "build:js": "npx esbuild st.tsx --bundle --outfile=st.js --format=iife --global-name=STApp --minify --define:process.env.NODE_ENV=\\\"production\\\"",
     "watch-css": "npx tailwindcss -i ./input.css -o ./style.css --watch",
