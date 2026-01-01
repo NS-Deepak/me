@@ -1,9 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { createRoot } from 'react-dom/client';
 import * as THREE from 'three';
 
-export default function App() {
+function App() {
   const mountRef = useRef<HTMLDivElement | null>(null);
-  const [info, setInfo] = useState(true);
 
   useEffect(() => {
     if (!mountRef.current) return;
@@ -43,76 +43,17 @@ export default function App() {
     const loader = new THREE.TextureLoader();
 
     // Load Real NASA Assets
-    const dayTexture = loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg');
-    const nightTexture = loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_lights_2048.png');
-    const specularTexture = loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_specular_2048.jpg');
-    const cloudTexture = loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_clouds_2048.png');
+    const dayTexture = loader.load('/textures/earth_atmos_2048.jpg');
+    const nightTexture = loader.load('/textures/earth_lights_2048.png');
+    const specularTexture = loader.load('/textures/earth_specular_2048.jpg');
+    const cloudTexture = loader.load('/textures/earth_clouds_2048.png');
 
     // Earth with Custom Ultra-Realistic Shader
-    const earthGeometry = new THREE.SphereGeometry(2, 128, 128);
+    const earthGeometry = new THREE.SphereGeometry(2, 64, 64);
 
-    const earthMaterial = new THREE.ShaderMaterial({
-      uniforms: {
-        dayTexture: { value: dayTexture },
-        nightTexture: { value: nightTexture },
-        specularMap: { value: specularTexture },
-        sunDirection: { value: new THREE.Vector3(10, 5, 5).normalize() }
-      },
-      vertexShader: `
-        varying vec2 vUv;
-        varying vec3 vNormal;
-        varying vec3 vPosition;
-        void main() {
-          vUv = uv;
-          vNormal = normalize(normalMatrix * normal);
-          vPosition = (modelViewMatrix * vec4(position, 1.0)).xyz;
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-        }
-      `,
-      fragmentShader: `
-        uniform sampler2D dayTexture;
-        uniform sampler2D nightTexture;
-        uniform sampler2D specularMap;
-        uniform vec3 sunDirection;
-        varying vec2 vUv;
-        varying vec3 vNormal;
-        varying vec3 vPosition;
-
-        void main() {
-          vec3 dayColor = texture2D(dayTexture, vUv).rgb;
-          vec3 nightColor = texture2D(nightTexture, vUv).rgb;
-          float specularMask = texture2D(specularMap, vUv).r;
-
-          // Lighting calculations
-          vec3 viewDir = normalize(-vPosition);
-          vec3 normal = normalize(vNormal);
-          vec3 sunDir = normalize(sunDirection);
-          
-          float sunDot = dot(normal, sunDir);
-          float diffuse = max(0.0, sunDot);
-          
-          // Specular (Ocean shine)
-          // Blinn-Phong or simple reflection
-          vec3 reflectDir = reflect(-sunDir, normal);
-          float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32.0);
-          vec3 specular = vec3(0.5) * spec * specularMask; // White specular
-
-          // Night mask
-          float nightMask = 1.0 - smoothstep(-0.15, 0.15, sunDot);
-          
-          // Day Side: DayTexture + Specular
-          vec3 daySide = (dayColor * (diffuse + 0.1) * 1.5) + specular;
-          
-          // Night Side: NightLights
-          vec3 nightSide = nightColor * nightMask * 1.5;
-          
-          // Atmosphere Fresnel (Surface glow)
-          float fresnel = pow(1.0 - dot(viewDir, normal), 4.0);
-          vec3 atmosphereColor = vec3(0.3, 0.6, 1.0) * fresnel * 0.4 * diffuse;
-
-          gl_FragColor = vec4(daySide + nightSide + atmosphereColor, 1.0);
-        }
-      `
+    const earthMaterial = new THREE.MeshStandardMaterial({
+      map: dayTexture,
+      color: 0x4488ff // Fallback color
     });
 
     const earth = new THREE.Mesh(earthGeometry, earthMaterial);
@@ -121,7 +62,7 @@ export default function App() {
     scene.add(earth);
 
     // Cloud Layer (High-res, transparent, slightly larger)
-    const cloudGeometry = new THREE.SphereGeometry(2.01, 128, 128); // Very close to surface
+    const cloudGeometry = new THREE.SphereGeometry(2.01, 64, 64); // Very close to surface
     const cloudMaterial = new THREE.MeshStandardMaterial({
       map: cloudTexture,
       transparent: true,
@@ -133,7 +74,7 @@ export default function App() {
     scene.add(clouds);
 
     // Outer Atmosphere (Halo)
-    const atmosphereGeometry = new THREE.SphereGeometry(2.15, 128, 128);
+    const atmosphereGeometry = new THREE.SphereGeometry(2.15, 64, 64);
     const atmosphereMaterial = new THREE.ShaderMaterial({
       vertexShader: `
         varying vec3 vNormal;
@@ -158,9 +99,9 @@ export default function App() {
     scene.add(atmosphere);
 
     // --- Milky Way Background ---
-    const starTexture = loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/starfield.png'); // Standard high-res starfield
+    const starTexture = loader.load('/textures/starfield.png'); // Standard high-res starfield
     // Create a large sphere for the background to simulate the Milky Way
-    const bgGeometry = new THREE.SphereGeometry(100, 64, 64);
+    const bgGeometry = new THREE.SphereGeometry(100, 32, 32);
     const bgMaterial = new THREE.MeshBasicMaterial({
       map: starTexture,
       side: THREE.BackSide
@@ -427,8 +368,8 @@ export default function App() {
     // --- Orbit path ---
     const orbitRadius = 3.5;
     const orbitInclination = 1.2;
-    const orbitPoints = [];
-    const segments = 128;
+    const orbitPoints: THREE.Vector3[] = [];
+    const segments = 64;
 
     for (let i = 0; i <= segments; i++) {
       const t = (i / segments) * Math.PI * 2;
@@ -496,18 +437,10 @@ export default function App() {
       isDragging = false;
     };
 
-    const onWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      const delta = e.deltaY * 0.01;
-      const distance = camera.position.length();
-      const newDistance = Math.max(3, Math.min(15, distance + delta));
-      camera.position.normalize().multiplyScalar(newDistance);
-    };
 
     renderer.domElement.addEventListener('mousedown', onMouseDown);
     renderer.domElement.addEventListener('mousemove', onMouseMove);
     renderer.domElement.addEventListener('mouseup', onMouseUp);
-    renderer.domElement.addEventListener('wheel', onWheel, { passive: false });
 
     // --- Animation Loop ---
     let time = 0;
@@ -556,85 +489,18 @@ export default function App() {
       renderer.domElement.removeEventListener('mousedown', onMouseDown);
       renderer.domElement.removeEventListener('mousemove', onMouseMove);
       renderer.domElement.removeEventListener('mouseup', onMouseUp);
-      renderer.domElement.removeEventListener('wheel', onWheel);
       mountRef.current?.removeChild(renderer.domElement);
       renderer.dispose();
     };
   }, []);
 
   return (
-    <div style={{ width: '100vw', height: '100vh', background: '#000000', position: 'relative', overflow: 'hidden' }}>
-      <div style={{
-        position: 'absolute',
-        top: 20,
-        left: 20,
-        color: '#00ffff',
-        fontFamily: 'monospace',
-        fontSize: '14px',
-        zIndex: 10,
-        background: 'rgba(0, 0, 0, 0.7)',
-        padding: '15px',
-        borderRadius: '4px',
-        border: '1px solid #00ffff',
-        pointerEvents: 'none'
-      }}>
-        <div style={{ fontSize: '18px', marginBottom: '10px', color: '#00ff00' }}>
-          ⬢ OPS_MONITOR_V2
-        </div>
-        <div>Targeting: Sector 76</div>
-        <div style={{ color: '#00ff00', marginTop: '5px' }}>● SYSTEM_ONLINE</div>
-      </div>
+    <div style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}>
 
-      <div style={{
-        position: 'absolute',
-        top: 20,
-        right: 20,
-        color: '#00ffff',
-        fontFamily: 'monospace',
-        fontSize: '12px',
-        zIndex: 10,
-        background: 'rgba(0, 0, 0, 0.7)',
-        padding: '15px',
-        borderRadius: '4px',
-        border: '1px solid #00ffff',
-        textAlign: 'right',
-        pointerEvents: 'none'
-      }}>
-        <div style={{ color: '#00ff00', marginBottom: '10px' }}>SAT_UPLINK: ACTIVE</div>
-        <div style={{ borderTop: '1px solid #00ffff', paddingTop: '10px', marginTop: '10px' }}>
-          AES-256 ENCRYPTED
-        </div>
-        <div style={{ marginTop: '10px', fontSize: '10px', color: '#888' }}>
-          <div>GROUND_STATION_ALPHA</div>
-          <div>BANGALORE, INDIA</div>
-        </div>
-      </div>
-
-      {info && (
-        <div style={{
-          position: 'absolute',
-          bottom: 20,
-          left: 20,
-          color: '#00ffff',
-          fontFamily: 'monospace',
-          fontSize: '11px',
-          zIndex: 10,
-          background: 'rgba(0, 0, 0, 0.7)',
-          padding: '12px',
-          borderRadius: '4px',
-          border: '1px solid #00ffff',
-          maxWidth: '300px'
-        }}>
-          <div style={{ marginBottom: '8px', color: '#00ff00' }}>CONTROLS:</div>
-          <div>• Click + Drag: Rotate</div>
-          <div>• Scroll: Zoom (3-15 units)</div>
-          <div style={{ marginTop: '8px', cursor: 'pointer', color: '#ff9900', pointerEvents: 'auto' }} onClick={() => setInfo(false)}>
-            [HIDE]
-          </div>
-        </div>
-      )}
 
       <div ref={mountRef} style={{ width: '100%', height: '100%' }} />
     </div>
   );
 }
+
+export default App;

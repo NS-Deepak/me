@@ -33,10 +33,31 @@
         rel="stylesheet" />
     <!-- Critical CSS - loaded synchronously -->
     <link href="style.css?v=2" rel="stylesheet">
+    <script type="module">
+      import React from 'react';
+      import App from './st.tsx';
+
+      const mountElement = document.getElementById('threejs-mount');
+      if (mountElement) {
+        const container = document.createElement('div');
+        container.style.width = '100%';
+        container.style.height = '100vh';
+        container.style.position = 'fixed';
+        container.style.top = '0';
+        container.style.left = '0';
+        container.style.zIndex = '0';
+        mountElement.appendChild(container);
+
+        const { createRoot } = await import('react-dom/client');
+        const reactRoot = createRoot(container);
+        reactRoot.render(React.createElement(App));
+      }
+    </script>
 </head>
 
 <body
     class="bg-zinc-950 text-zinc-50 antialiased font-sans selection:bg-primary selection:text-white overflow-x-hidden">
+    <div id="threejs-mount"></div>
     <div class="relative flex min-h-screen w-full flex-col">
         <!-- Top Navigation -->
         <header class="sticky top-0 z-50 w-full border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">

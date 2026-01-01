@@ -1,7 +1,6 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": ".",
-  "framework": null,
   "installCommand": "npm install",
   "devCommand": "npm run dev",
   "headers": [
@@ -28,7 +27,7 @@
       ]
     },
     {
-      "source": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico))",
+      "source": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico))$",
       "headers": [
         {
           "key": "Cache-Control",

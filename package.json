@@ -3,21 +3,26 @@
   "version": "1.0.0",
   "description": "Deepak G - Developer Portfolio",
   "scripts": {
-    "build": "npm run clean && npx tailwindcss -i ./input.css -o ./style.css --minify",
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "npx tailwindcss -i ./input.css -o ./style.css --minify",
+    "build:js": "npx esbuild st.tsx --bundle --outfile=st.js --format=iife --global-name=STApp --minify --define:process.env.NODE_ENV=\\\"production\\\"",
     "watch-css": "npx tailwindcss -i ./input.css -o ./style.css --watch",
-    "dev": "npm run watch-css",
-    "clean": "rm -rf dist",
+    "dev": "vite",
+    "clean": "rm -f style.css st.js",
     "preview": "npx serve . -p 3000"
   },
   "devDependencies": {
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/forms": "^0.5.11",
     "@types/three": "^0.182.0",
+    "@vitejs/plugin-react": "^5.1.2",
     "autoprefixer": "^10.4.23",
+    "esbuild": "^0.25.0",
     "postcss": "^8.5.6",
     "serve": "^14.2.4",
     "tailwindcss": "^3.4.19",
-    "tailwindcss-cli": "^0.1.2"
+    "tailwindcss-cli": "^0.1.2",
+    "vite": "^7.3.0"
   },
   "dependencies": {
     "@types/react": "^19.2.7",
