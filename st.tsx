@@ -19,7 +19,7 @@ function App() {
       1000
     );
     const initialDistance = window.innerWidth < 768 ? 12 : 8;
-    camera.position.set(0, 2, initialDistance);
+    camera.position.set(0, 0, initialDistance);
 
     // --- Renderer ---
     const renderer = new THREE.WebGLRenderer({ antialias: true });
