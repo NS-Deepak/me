@@ -18,7 +18,8 @@ function App() {
       0.1,
       1000
     );
-    camera.position.set(0, 2, 8);
+    const initialDistance = window.innerWidth < 768 ? 12 : 8;
+    camera.position.set(0, 2, initialDistance);
 
     // --- Renderer ---
     const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -479,6 +480,10 @@ function App() {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
+
+      // Responsively adjust camera distance
+      const newDistance = window.innerWidth < 768 ? 12 : 8;
+      camera.position.normalize().multiplyScalar(newDistance);
     };
 
     window.addEventListener('resize', handleResize);
